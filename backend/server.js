@@ -22,7 +22,15 @@ const app = express();
 // ✅ Middleware
 app.use(express.json({ limit: "10kb" }));
 app.use(express.urlencoded({ extended: true, limit: "10kb" }));
-app.use(cors()); 
+app.use(cors({
+  origin: [
+    "https://ecommerce-ruby-six-59.vercel.app",
+    "http://localhost:5173"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+  credentials: true,
+}));
+
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev")); 
 }
