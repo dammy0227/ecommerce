@@ -1,9 +1,8 @@
-import Product from "../../../backend/models/Product";
 import API from "./api";
 
 export const getProducts = async (params = {}) => {
   const res = await API.get("/products", {
-    params, // axios will convert to query string
+    params, 
   });
   return res.data;
 };

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useInView } from "../../hooks/useInView"; // <-- import
+import { useInView } from "../../hooks/useInView"; 
 
 const Banner = () => {
   const imageSets = [
