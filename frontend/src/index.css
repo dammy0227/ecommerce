@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap"); 
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
+@import "tailwindcss";
+
+@theme {
+  --font-roboto: "Roboto", sans-serif;
+  --font-pacifico: "Pacifico", cursive;
+}
+
+@theme {
+  --animate-slide-up: slide-up 0.6s ease-out;
+
+  @keyframes slide-up {
+    0% {
+      opacity: 0;
+      transform: translateY(90px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+.animate-slide-up {
+  animation: var(--animate-slide-up);
+  animation-fill-mode: forwards;
+}
+
+
+@theme {
+  --animate-slide-right: slide-right 0.6s ease-out;
+
+  @keyframes slide-right {
+    0% {
+      opacity: 0;
+      transform: translateX(100px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+.animate-slide-right {
+  animation: var(--animate-slide-right);
+  animation-fill-mode: forwards; 
+}
+
+
+
+@theme {
+  --animate-slide-left: slide-left 0.6s ease-out;
+
+  @keyframes slide-left {
+    0% {
+      opacity: 0;
+      transform: translate(-100px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+.animate-slide-left {
+  animation: var(--animate-slide-left);
+  animation-fill-mode: forwards; /* <-- keeps final position after animation */
+}
+
+
+/* custom scrollbar */
+.scrollbar-custom::-webkit-scrollbar {
+  width: 1px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 10px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb:hover {
+  background: #333;
+}
+
+ 
+body {
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
