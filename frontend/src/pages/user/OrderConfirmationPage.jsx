@@ -151,7 +151,7 @@ const OrderConfirmationPage = () => {
       <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
         {/* Success Header */}
         <div className="mb-6 sm:mb-10 text-center">
-          <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-purple-100 to-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+          <div className="w-16 h-16 sm:w-20 sm:h-20 bg-linear-to-r from-purple-100 to-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
             <CheckCircle className="w-8 h-8 sm:w-10 sm:h-10 text-emerald-600" />
           </div>
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Order Confirmed!</h1>
@@ -250,7 +250,7 @@ const OrderConfirmationPage = () => {
                     }`}
                   >
                     <div className="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
-                      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gray-100 rounded-lg flex-shrink-0 flex items-center justify-center">
+                      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gray-100 rounded-lg shrink-0 flex items-center justify-center">
                         {item.product.image ? (
                           <img 
                             src={item.product.image} 
@@ -280,7 +280,7 @@ const OrderConfirmationPage = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="text-right flex-shrink-0 ml-2 sm:ml-4">
+                    <div className="text-right shrink-0 ml-2 sm:ml-4">
                       <p className="font-semibold text-gray-900 text-sm sm:text-base">${item.price.toFixed(2)}</p>
                       <p className="text-xs sm:text-sm text-gray-500">${(item.price * item.quantity).toFixed(2)} total</p>
                     </div>
@@ -323,7 +323,7 @@ const OrderConfirmationPage = () => {
             {/* Shipping Information */}
             <div className="bg-white rounded-xl sm:rounded-2xl shadow-sm border border-gray-300 p-4 sm:p-6">
               <div className="flex items-center gap-3 mb-4 sm:mb-6">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-purple-100 rounded-lg flex items-center justify-center shrink-0">
                   <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-purple-600" />
                 </div>
                 <h2 className="text-lg font-semibold text-gray-900">Shipping Address</h2>
@@ -345,7 +345,7 @@ const OrderConfirmationPage = () => {
             <div className="space-y-2 sm:space-y-3">
               <button
                 onClick={() => navigate("/productDashboard")}
-                className="w-full px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-lg sm:rounded-xl hover:from-purple-700 hover:to-purple-800 transition-all duration-200 font-semibold text-sm sm:text-base shadow-sm hover:shadow-md flex items-center justify-center gap-2"
+                className="w-full px-4 sm:px-6 py-2.5 sm:py-3 bg-linear-to-r from-purple-600 to-purple-700 text-white rounded-lg sm:rounded-xl hover:from-purple-700 hover:to-purple-800 transition-all duration-200 font-semibold text-sm sm:text-base shadow-sm hover:shadow-md flex items-center justify-center gap-2"
               >
                 <Home className="w-4 h-4 sm:w-5 sm:h-5" />
                 Continue Shopping
