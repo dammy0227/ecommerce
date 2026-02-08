@@ -214,7 +214,7 @@ const ProductsPage = () => {
   };
 
   return (
-    <div className="min-h-screen  p-4 sm:p-6 lg:p-8">
+    <div className="min-h-screen pt-20 p-2 sm:p-6 lg:p-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
@@ -233,7 +233,7 @@ const ProductsPage = () => {
             
             <button
               onClick={openAddModal}
-              className="flex items-center gap-2 px-4 py-2 bg-linear-to-r from-purple-600 to-blue-600 text-white rounded-xl hover:from-purple-700 hover:to-blue-700 transition-all shadow-sm"
+              className="flex items-center gap-2 w-fit px-4 py-2 bg-linear-to-r from-purple-600 to-blue-600 text-white rounded-xl hover:from-purple-700 hover:to-blue-700 transition-all shadow-sm"
             >
               <Plus className="w-5 h-5" />
               <span>Add Product</span>

@@ -108,11 +108,11 @@ const SettingsPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen pt-15 bg-gray-50">
       {/* Header */}
       <div className="">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="py-8">
+          <div className="">
             <h1 className="text-3xl font-bold text-gray-900">Settings</h1>
             <p className="text-gray-600 mt-2">Manage your account preferences</p>
           </div>
@@ -123,7 +123,7 @@ const SettingsPage = () => {
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Sidebar */}
           <div className="lg:w-64">
-            <div className="bg-white rounded-xl border shadow-sm p-4">
+            <div className="bg-white rounded-xl border border-gray-300 shadow-sm p-4">
               <div className="mb-6 p-4 bg-linear-to-r from-purple-50 to-blue-50 rounded-lg">
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 bg-linear-to-r from-purple-600 to-blue-600 rounded-full flex items-center justify-center">
@@ -167,7 +167,7 @@ const SettingsPage = () => {
           <div className="flex-1">
             {/* Success Message */}
             {updateSuccess && (
-              <div className="mb-6 rounded-xl bg-green-50 border border-green-200 p-4 flex items-center gap-3">
+              <div className="mb-6 rounded-xl bg-green-50 border border-green-300 p-4 flex items-center gap-3">
                 <CheckCircle className="w-5 h-5 text-green-600" />
                 <p className="text-green-700 font-medium">Profile updated successfully!</p>
               </div>
@@ -189,7 +189,7 @@ const SettingsPage = () => {
               </div>
             )}
 
-            <div className="bg-white rounded-xl border shadow-sm overflow-hidden">
+            <div className="bg-white rounded-xl border border-gray-300 shadow-sm overflow-hidden">
               {/* Profile Tab */}
               {activeTab === 'profile' && (
                 <div className="p-6">

@@ -200,7 +200,7 @@ const DashboardHome = () => {
   ];
 
   return (
-    <div className="min-h-screen p-4 sm:p-6 lg:p-8">
+    <div className="min-h-screen pt-20 p-2 sm:p-6 lg:p-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
@@ -309,7 +309,7 @@ const DashboardHome = () => {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {statsCards.map((stat, index) => (
             <div
               key={index}
@@ -331,7 +331,7 @@ const DashboardHome = () => {
                 
                 <div>
                   <p className="text-sm text-gray-600 mb-1">{stat.title}</p>
-                  <p className="text-2xl font-bold text-gray-900">{stat.value}</p>
+                  <p className="text-xl lg:text-2xl font-bold text-gray-900">{stat.value}</p>
                 </div>
                 
                 <div className="mt-4 pt-4 border-t border-gray-100">
@@ -348,8 +348,8 @@ const DashboardHome = () => {
         </div>
 
         {/* Chart Section */}
-        <div className="mb-8">
-          <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-5">
+        <div className="mb-0">
+          <div className="">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6">
               <div>
                 <h2 className="text-xl font-bold text-gray-900 mb-1">Revenue Analytics</h2>

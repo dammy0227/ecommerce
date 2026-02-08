@@ -38,8 +38,8 @@ const ProductNavbar = ({ onFilterClick }) => {
   };
 
   return (
-    <nav className="bg-white border-b border-gray-200 sticky top-0 z-40">
-      <div className="px-4 sm:px-6">
+    <nav className="bg-white px-3 border-b border-gray-200 sticky top-0 z-40">
+      <div className="">
         {/* ================= TOP BAR ================= */}
         <div className="h-16 flex items-center justify-between">
           {/* LEFT */}

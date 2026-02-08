@@ -38,7 +38,7 @@ const ProductLayout = ({ children }) => {
 
 
         {/* MAIN CONTENT */}
-        <div className="flex-1 overflow-auto p-4 bg-gray-50">
+        <div className="flex-1 overflow-auto  bg-gray-50">
                 <ProductNavbar onFilterClick={() => setIsSidebarOpen(true)} />
           {children}
         </div>

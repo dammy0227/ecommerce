@@ -26,7 +26,6 @@ const PrevArrow = ({ onClick }) => (
   </div>
 );
 
-/* ---------- COMPONENT ---------- */
 const Trending = () => {
   const settings = {
     dots: false,
@@ -37,16 +36,6 @@ const Trending = () => {
     arrows: true,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: { slidesToShow: 2 },
-      },
-      {
-        breakpoint: 640,
-        settings: { slidesToShow: 1 },
-      },
-    ],
   };
 
   const trendingData = [
@@ -88,54 +77,64 @@ const Trending = () => {
     },
   ];
 
+  const Card = ({ item }) => (
+    <div className="relative h-[420px] rounded-xl overflow-hidden group min-w-[260px]">
+      <img
+        src={item.img}
+        alt={item.title}
+        className="absolute inset-0 w-full h-full object-cover
+        transition-transform duration-700 group-hover:scale-110"
+      />
+
+      <div className="absolute inset-0 bg-linear-to-t 
+        from-black/80 via-black/40 to-transparent" />
+
+      <div className="absolute bottom-0 p-5 text-white flex flex-col gap-2">
+        <h2 className="text-xl font-semibold">{item.title}</h2>
+        <p className="text-sm text-gray-200 line-clamp-2">
+          {item.desc}
+        </p>
+
+        <div className="flex items-center justify-between mt-2">
+          <span className="font-bold text-lg">{item.price}</span>
+
+          <button
+            onClick={() => alert("login to see all items")}
+            className="bg-purple-700 hover:bg-purple-800
+            text-sm px-4 py-2 rounded-full transition"
+          >
+            View
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <section className="pt-10 max-w-[1200px] mx-auto px-5">
-      {/* TITLE */}
       <h1 className="text-gray-400 font-bold text-lg md:text-4xl mb-8">
         Top <span className="text-purple-700">Trending</span>
       </h1>
 
-      {/* SLIDER */}
-      <Slider {...settings}>
-        {trendingData.map((item, index) => (
-          <div key={index} className="px-2">
-            <div className="relative h-[420px] lg:h-[400px] rounded-xl overflow-hidden group">
-
-              {/* IMAGE */}
-              <img
-                src={item.img}
-                alt={item.title}
-                className="absolute inset-0 w-full h-full object-cover
-                transition-transform duration-700 group-hover:scale-110"
-              />
-
-              {/* OVERLAY */}
-              <div className="absolute inset-0 bg-linear-to-t 
-                from-black/80 via-black/40 to-transparent" />
-
-              {/* CONTENT */}
-              <div className="absolute bottom-0 p-5 text-white flex flex-col gap-2">
-                <h2 className="text-xl font-semibold">{item.title}</h2>
-                <p className="text-sm text-gray-200 line-clamp-2">
-                  {item.desc}
-                </p>
-
-                <div className="flex items-center justify-between mt-2">
-                  <span className="text-gray-100 font-bold text-lg">
-                    {item.price}
-                  </span>
-
-                  <button onClick={()=>alert('login to see all items')} className="bg-purple-700 hover:bg-purple-800
-                    text-white text-sm px-4 py-2  rounded-full transition">
-                    View
-                  </button>
-                </div>
-              </div>
-
-            </div>
+      {/* ---------- MOBILE SCROLL ---------- */}
+      <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory lg:hidden pb-4">
+        {trendingData.map((item, i) => (
+          <div key={i} className="snap-start">
+            <Card item={item} />
           </div>
         ))}
-      </Slider>
+      </div>
+
+      {/* ---------- DESKTOP SLICK ---------- */}
+      <div className="hidden lg:block">
+        <Slider {...settings}>
+          {trendingData.map((item, i) => (
+            <div key={i} className="px-2">
+              <Card item={item} />
+            </div>
+          ))}
+        </Slider>
+      </div>
     </section>
   );
 };

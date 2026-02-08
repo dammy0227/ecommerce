@@ -201,7 +201,7 @@ const CartPage = () => {
           {/* Left: Cart Items */}
           <div className="lg:w-2/3">
             {!cart?.items || cart.items.length === 0 ? (
-              <div className="bg-white rounded-2xl border shadow-sm p-12 text-center">
+              <div className="bg-white rounded-2xl border border-gray-300 shadow-sm p-12 text-center">
                 <div className="w-24 h-24 bg-linear-to-r from-purple-100 to-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
                   <ShoppingBag className="w-12 h-12 text-purple-600" />
                 </div>
@@ -229,7 +229,7 @@ const CartPage = () => {
                   return (
                     <div
                       key={itemId}
-                      className={`bg-white rounded-2xl border shadow-sm overflow-hidden transition-all duration-300 ${
+                      className={`bg-white rounded-2xl border border-gray-300 shadow-sm overflow-hidden transition-all duration-300 ${
                         isSelected ? "ring-2 ring-purple-500 ring-offset-2" : ""
                       }`}
                     >
@@ -333,7 +333,7 @@ const CartPage = () => {
           {/* Right: Order Summary */}
           {cart?.items?.length > 0 && (
             <div className="lg:w-1/3">
-              <div className="bg-white rounded-2xl border shadow-sm p-6 sticky top-24">
+              <div className="bg-white rounded-2xl border border-gray-300 shadow-sm p-6 sticky top-24">
                 <h2 className="text-xl font-bold text-gray-900 mb-6">Order Summary</h2>
                 
                 {/* Selected Items Summary */}

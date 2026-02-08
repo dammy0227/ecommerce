@@ -162,7 +162,7 @@ const OrderConfirmationPage = () => {
           {/* Left Column - Order Details */}
           <div className="lg:col-span-2 space-y-6">
             {/* Order Status Card */}
-            <div className="bg-white rounded-2xl shadow-sm border p-6">
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-300 p-6">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-lg font-semibold text-gray-900">Order Status</h2>
                 <div className="flex items-center gap-3">
@@ -224,7 +224,7 @@ const OrderConfirmationPage = () => {
             </div>
 
             {/* Items Ordered */}
-            <div className="bg-white rounded-2xl shadow-sm border p-6">
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-300 p-6">
               <h2 className="text-lg font-semibold text-gray-900 mb-6">Items Ordered</h2>
               <div className="space-y-4">
                 {items.map((item, index) => (
@@ -276,7 +276,7 @@ const OrderConfirmationPage = () => {
           {/* Right Column - Summary & Shipping */}
           <div className="space-y-6">
             {/* Order Summary */}
-            <div className="bg-white rounded-2xl shadow-sm border p-6">
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-300 p-6">
               <h2 className="text-lg font-semibold text-gray-900 mb-6">Order Summary</h2>
               <div className="space-y-3">
                 <div className="flex justify-between text-sm">
@@ -304,7 +304,7 @@ const OrderConfirmationPage = () => {
             </div>
 
             {/* Shipping Information */}
-            <div className="bg-white rounded-2xl shadow-sm border p-6">
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-300 p-6">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
                   <MapPin className="w-5 h-5 text-purple-600" />

@@ -139,7 +139,7 @@ const UsersPage = () => {
   };
 
   return (
-    <div className="min-h-screen  p-4 sm:p-6 lg:p-8">
+    <div className="min-h-screen pt-20 p-2 sm:p-6 lg:p-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
@@ -169,7 +169,7 @@ const UsersPage = () => {
           </div>
 
           {/* Stats Overview */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
             <div className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm">
               <div className="flex items-center justify-between">
                 <div>

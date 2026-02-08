@@ -120,7 +120,7 @@ const ProductList = () => {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
           {products.map((product) => {
             const isOutOfStock = product.stock <= 0;
             const isInWishlist = wishlist.has(product._id);
@@ -135,7 +135,7 @@ const ProductList = () => {
                   <img
                     src={product.images?.[0]?.url || '/api/placeholder/400/400'}
                     alt={product.name}
-                    className="w-full h-54 object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-34 object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   
                   {/* Wishlist Button */}

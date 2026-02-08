@@ -25,6 +25,7 @@
   }
 }
 
+
 .animate-slide-up {
   animation: var(--animate-slide-up);
   animation-fill-mode: forwards;
@@ -70,7 +71,7 @@
 
 .animate-slide-left {
   animation: var(--animate-slide-left);
-  animation-fill-mode: forwards; /* <-- keeps final position after animation */
+  animation-fill-mode: forwards;
 }
 
 

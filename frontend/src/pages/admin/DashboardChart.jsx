@@ -79,7 +79,7 @@ const DashboardChart = ({ orders }) => {
       {/* Charts Flex Container */}
       <div className="flex flex-col md:flex-row gap-6">
         {/* Revenue Line Chart */}
-        <div className="flex-1 bg-white rounded-md p-6  transition-shadow">
+        <div className="flex-1 bg-white rounded-md p-6 shadow-lg transition-shadow">
           <h4 className="text-gray-600  mb-4">Revenue Trend</h4>
           <LineChart
             height={250} // smaller height
@@ -104,16 +104,12 @@ const DashboardChart = ({ orders }) => {
         
 
        {/* Orders Gauge Chart */}
-       <div className="w-full md:w-1/3 flex flex-col gap-4">
-<div className="relative bg-purple-900 text-white rounded-md p-6 flex flex-col gap-1 font-light overflow-hidden">
-  {/* Image on the right side */}
-  <div
-    className="absolute top-0 right-0 h-full w-1/3 bg-no-repeat bg-contain bg-right opacity-70 pointer-events-none"
-    style={{
-      backgroundImage:
-        "url('/img.png')",
-    }}
-  ></div>
+       <div className="w-full md:w-1/3 flex flex-col gap-4 bg-white rounded-md shadow-lg transition-shadow">
+       <div className="relative bg-purple-900 text-white rounded-md p-6 flex flex-col gap-1 font-light overflow-hidden">
+        {/* Image on the right side */}
+        <div
+        className="absolute top-0 right-0 h-full w-1/3 bg-no-repeat bg-contain bg-right opacity-70 pointer-events-none"
+        style={{ backgroundImage:"url('/img.png')",}}></div>
 
   {/* Content */}
   <div className="relative flex flex-col gap-3">

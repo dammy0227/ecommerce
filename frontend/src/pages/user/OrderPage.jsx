@@ -196,7 +196,7 @@ const OrderPage = () => {
           {/* Left Column - Forms */}
           <div className="lg:w-2/3 space-y-6">
             {/* Contact Information */}
-            <div className="bg-white rounded-2xl border shadow-sm p-6">
+            <div className="bg-white rounded-2xl border border-gray-300 shadow-sm p-6">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 bg-linear-to-r from-purple-100 to-blue-100 rounded-lg flex items-center justify-center">
                   <User className="w-5 h-5 text-purple-600" />
@@ -268,7 +268,7 @@ const OrderPage = () => {
             </div>
 
             {/* Shipping Address */}
-            <div className="bg-white rounded-2xl border shadow-sm p-6">
+            <div className="bg-white rounded-2xl border border-gray-300 shadow-sm p-6">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 bg-linear-to-r from-purple-100 to-blue-100 rounded-lg flex items-center justify-center">
                   <MapPin className="w-5 h-5 text-purple-600" />
@@ -387,7 +387,7 @@ const OrderPage = () => {
             </div>
 
             {/* Payment Method */}
-            <div className="bg-white rounded-2xl border shadow-sm p-6">
+            <div className="bg-white rounded-2xl border border-gray-300 shadow-sm p-6">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 bg-linear-to-r from-purple-100 to-blue-100 rounded-lg flex items-center justify-center">
                   <CreditCard className="w-5 h-5 text-purple-600" />
@@ -452,7 +452,7 @@ const OrderPage = () => {
 
           {/* Right Column - Order Summary */}
           <div className="lg:w-1/3">
-            <div className="bg-white rounded-2xl border shadow-sm p-6 sticky top-24">
+            <div className="bg-white rounded-2xl border border-gray-300 shadow-sm p-6 sticky top-24">
               <h2 className="text-lg font-semibold text-gray-900 mb-6">Order Summary</h2>
 
               {/* Order Items */}

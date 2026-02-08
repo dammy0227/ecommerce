@@ -35,8 +35,8 @@ const Register2 = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4">
-      <div className="w-full max-w-6xl bg-white rounded-2xl overflow-hidden flex flex-col md:grid md:grid-cols-2">
+    <div className="min-h-screen bg-purple-50 flex items-center justify-center px-4">
+      <div className="w-full max-w-6xl  shadow-0 lg:shadow-lg rounded-2xl overflow-hidden flex flex-col md:grid md:grid-cols-2">
 
         {/* MOBILE HEADER */}
         <div className="md:hidden flex flex-col items-center gap-2 py-5">
@@ -49,12 +49,13 @@ const Register2 = () => {
         </div>
 
         {/* IMAGE (same as login) */}
-        <div className="relative h-70 md:h-auto w-full">
+        <div className="relative h-70 md:h-auto w-full ">
           <img
             src="https://img.freepik.com/free-photo/3d-render-secure-login-password-illustration_107791-16640.jpg?semt=ais_hybrid&w=740&q=80"
             alt="Register illustration"
             className="absolute inset-0 w-full h-full object-cover"
           />
+            <div className="absolute inset-0 bg-whites lg:bg-purple-900/40" />
         </div>
 
         {/* FORM */}

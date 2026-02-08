@@ -115,7 +115,7 @@ const ProfilePage = () => {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Sidebar Menu */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-2xl border shadow-sm overflow-hidden">
+            <div className="bg-white rounded-2xl border border-gray-300 shadow-sm overflow-hidden">
               <div className="p-6 border-b">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="relative">
@@ -167,7 +167,7 @@ const ProfilePage = () => {
 
           {/* Main Content */}
           <div className="lg:col-span-3">
-            <div className="bg-white rounded-2xl border shadow-sm overflow-hidden">
+            <div className="bg-white rounded-2xl border border-gray-300 shadow-sm overflow-hidden">
               {/* Header */}
               <div className="p-6 border-b flex items-center justify-between">
                 <div>

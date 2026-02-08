@@ -31,7 +31,7 @@ const Sidebar = () => {
       {/* HAMBURGER BUTTON */}
       {!open && (
         <button
-          className="lg:hidden fixed top-2 left-6 z-50 text-purple-700 cursor-pointer p-2 "
+          className="lg:hidden fixed top-2 left-6 z-50 text-white lg:text-purple-700 cursor-pointer p-2 "
           onClick={() => setOpen(true)}
         >
           <AiOutlineMenu size={24} />

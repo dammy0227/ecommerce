@@ -10,23 +10,23 @@ const Navbar = () => {
   };
 
   return (
-    <header className="w-full border-b border-gray-300 bg-[whitesmoke]
+    <header className="w-full border-b border-gray-300 bg-purple-700 fixed
       flex items-center lg:justify-between justify-end px-6 py-3 md:hidden ">
 
       <h2 className="hidden lg:block  text-purple-800">Welcome back Admin</h2>
 
       <div className="flex items-center space-x-4">
-        <button className="relative bg-purple-700 rounded-2xl p-1">
-          <FiBell size={20} color="white" />
+        <button className="relative bg-white rounded-2xl p-1">
+          <FiBell size={20} color="purple" />
           <span className="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"></span>
         </button>
 
         <button
           onClick={toggleDarkMode}
-          className="p-1 rounded-full bg-purple-700 
+          className="p-1 rounded-full bg-white 
           text-gray-800 dark:text-white"
         >
-          {darkMode ? <FiSun size={20} /> : <FiMoon size={20} />}
+          {darkMode ? <FiSun size={20} color="purple"/> : <FiMoon size={20} color="purple"/>}
         </button>
       </div>
     </header>

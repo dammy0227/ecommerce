@@ -203,11 +203,11 @@ const MyOrdersPage = () => {
               </p>
             </div>
             <div className="flex items-center gap-3">
-              <button className="px-4 py-2 bg-white border rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors inline-flex items-center gap-2">
+              <button className="px-4 py-2 bg-white border border-r-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors inline-flex items-center gap-2">
                 <Filter className="w-4 h-4" />
                 Filter
               </button>
-              <button className="px-4 py-2 bg-white border rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors inline-flex items-center gap-2">
+              <button className="px-4 py-2 bg-white border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors inline-flex items-center gap-2">
                 <SortAsc className="w-4 h-4" />
                 Sort
               </button>
@@ -216,7 +216,7 @@ const MyOrdersPage = () => {
 
           {/* Stats Overview */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-            <div className="bg-white rounded-xl p-4 border shadow-sm">
+            <div className="bg-white rounded-xl p-4 border  border-gray-300 shadow-sm">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-500">Total Orders</p>
@@ -225,7 +225,7 @@ const MyOrdersPage = () => {
                 <ShoppingBag className="w-8 h-8 text-purple-600" />
               </div>
             </div>
-            <div className="bg-white rounded-xl p-4 border shadow-sm">
+            <div className="bg-white rounded-xl p-4 border border-gray-300 shadow-sm">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-500">Processing</p>
@@ -236,7 +236,7 @@ const MyOrdersPage = () => {
                 <Clock className="w-8 h-8 text-amber-600" />
               </div>
             </div>
-            <div className="bg-white rounded-xl p-4 border shadow-sm">
+            <div className="bg-white rounded-xl p-4 border border-gray-300 shadow-sm">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-500">Delivered</p>
@@ -247,7 +247,7 @@ const MyOrdersPage = () => {
                 <CheckCircle className="w-8 h-8 text-emerald-600" />
               </div>
             </div>
-            <div className="bg-white rounded-xl p-4 border shadow-sm">
+            <div className="bg-white rounded-xl p-4 border border-gray-300 shadow-sm">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-500">Total Spent</p>
@@ -281,7 +281,7 @@ const MyOrdersPage = () => {
             return (
               <div
                 key={order._id}
-                className="bg-white rounded-2xl border shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden group"
+                className="bg-white rounded-2xl border border-gray-300 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden group"
               >
                 {/* Status Banner */}
                 <div className={`px-5 py-3 ${status.color} border-b`}>

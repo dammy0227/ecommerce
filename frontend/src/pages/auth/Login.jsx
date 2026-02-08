@@ -32,8 +32,8 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4">
-      <div className="w-full max-w-6xl bg-white rounded-2xl  overflow-hidden flex flex-col  md:grid md:grid-cols-2">
+    <div className="min-h-screen flex items-center justify-center px-4 bg-white lg:bg-purple-50 ">
+      <div className="w-full max-w-6xl shadow-0 lg:shadow-lg bg-white rounded-2xl  overflow-hidden flex flex-col  md:grid md:grid-cols-2">
               
               <div className=" md:hidden flex flex-col items-center gap-2 py-5">
                   <h1 className="font-bold text-2xl text-purple-800">Welcome Back</h1>
@@ -49,10 +49,11 @@ const Login = () => {
             alt="Login illustration"
             className="absolute inset-0 w-full h-full object-cover"
           />
+          <div className="absolute inset-0 bg-whites lg:bg-purple-900/40" />
         </div>
 
         {/* FORM */}
-        <div className="p-8 md:p-12 flex flex-col justify-center">
+        <div className="p-8 md:p-16 flex flex-col justify-center">
           <h2 className="text-3xl font-bold mb-2 hidden md:block text-purple-800">Welcome Back </h2>
           <p className="text-gray-500 mb-8 hidden md:block">
             Login to your Foothub account

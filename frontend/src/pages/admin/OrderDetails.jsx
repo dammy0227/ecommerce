@@ -200,7 +200,7 @@ const OrderDetails = () => {
   const total = order.totalAmount || 0;
 
   return (
-    <div className="min-h-screen p-4 sm:p-6 lg:p-8">
+    <div className="min-h-screen pt-20 p-2 sm:p-6 lg:p-8">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-8">
