@@ -226,7 +226,7 @@ const Trending = () => {
               </div>
               
               <button className="px-4 py-2 bg-linear-to-r from-purple-600 to-blue-600 text-white rounded-lg font-medium text-xs hover:shadow-lg transition-shadow flex items-center gap-1.5">
-                <ShoppingCart className="w-3.5 h-3.5" />
+                <ShoppingCart className="w-3.5 h-3.5" onClick={()=>alert('login to get item')}/>
                 Add
               </button>
             </div>
@@ -305,6 +305,7 @@ const Trending = () => {
         {/* View All Button */}
         <div className="text-center mt-12">
           <motion.button
+          onClick={()=> alert("login to view all trending item")}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="px-8 py-3 bg-white text-purple-600 font-semibold rounded-xl border-2 border-purple-200 hover:border-purple-600 hover:bg-purple-50 transition-all duration-300 inline-flex items-center gap-2"

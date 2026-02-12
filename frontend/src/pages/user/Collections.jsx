@@ -99,8 +99,9 @@ const Collections = () => {
           whileTap={{ scale: 0.98 }}
           className="hidden sm:block"
         >
+          
           <Link
-            to="/shop"
+            to="/login"
             onClick={() => alert('Please login or register to view all items')}
             className="group px-5 py-2.5 md:px-6 md:py-3.5 bg-purple-600 text-white rounded-full font-medium hover:bg-purple-700 transition-all duration-300 shadow-md hover:shadow-xl inline-flex items-center gap-2 text-sm md:text-base"
           >
@@ -243,7 +244,7 @@ const Collections = () => {
                     <span className="hidden xs:inline">
                       {outOfStock ? "Sold" : "Add"}
                     </span>
-                    <span className="xs:hidden">
+                    <span className="xs:hidden" onClick={()=>alert('login to get item')}>
                       {outOfStock ? "Out" : "Add"}
                     </span>
                   </button>

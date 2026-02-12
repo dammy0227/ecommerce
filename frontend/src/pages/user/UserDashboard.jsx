@@ -363,7 +363,7 @@ const UserDashboard = () => {
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  onClick={() => navigate("/shop")}
+                  onClick={()=> navigate("/login")}
                   className="group px-6 sm:px-8 py-3 sm:py-4 bg-white text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition-all duration-300 flex items-center justify-center gap-3 shadow-2xl text-sm sm:text-base"
                 >
                   <span>{heroTitles[currentSlide].cta}</span>
@@ -373,11 +373,11 @@ const UserDashboard = () => {
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  onClick={() => navigate("/collections")}
+                  onClick={()=> navigate("/login")}
                   className="px-6 sm:px-8 py-3 sm:py-4 border-2 border-white/30 text-white rounded-xl font-semibold hover:bg-white/20 backdrop-blur-md transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base"
                 >
                   <Zap className="w-4 h-4 sm:w-5 sm:h-5" />
-                  <span>Shop All</span>
+                  <span >Shop All</span>
                 </motion.button>
               </motion.div>
 
