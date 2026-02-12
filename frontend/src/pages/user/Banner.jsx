@@ -1,36 +1,44 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Clock, Tag, Zap } from "lucide-react";
+import { 
+  ShoppingBag, 
+  ArrowRight, 
+  Sparkles, 
+  Gift, 
+  Flame,
+  ChevronRight,
+  Star,
+  Eye
+} from "lucide-react";
 
 const Banner = () => {
   const imageSets = [
-    [
-      "https://i.pinimg.com/1200x/e3/b8/9d/e3b89de5a4a74dac7108c643976e0395.jpg",
-      "https://i.pinimg.com/736x/12/41/75/124175833ba103a7852797ef3f0415fd.jpg",
-      "https://i.pinimg.com/736x/79/9b/04/799b04c4a7cbdd7e9ee2337b5c34196b.jpg",
-    ],
-    [
-      "https://i.pinimg.com/1200x/87/70/99/877099fbc97ec0ad897baa65fe126129.jpg",
-      "https://i.pinimg.com/736x/40/a2/a8/40a2a888fe5e8d8d7a07c5b231bb123a.jpg",
-      "https://i.pinimg.com/1200x/3e/84/1d/3e841d86bc724262394cd4e8295b9c3a.jpg",
-    ],
-    [
-      "https://i.pinimg.com/736x/78/4e/2d/784e2d39bff88513ca94729cc6a1107d.jpg",
-      "https://i.pinimg.com/736x/a8/bc/70/a8bc707eb79e865f1d861a3d8dcd9f83.jpg",
-      "https://i.pinimg.com/1200x/fe/33/9e/fe339e45e15480ebcdc89c6956cffe2b.jpg",
-    ],
+    {
+      hero: "https://i.pinimg.com/1200x/e3/b8/9d/e3b89de5a4a74dac7108c643976e0395.jpg",
+      primary: "https://i.pinimg.com/736x/12/41/75/124175833ba103a7852797ef3f0415fd.jpg",
+      secondary: "https://i.pinimg.com/736x/79/9b/04/799b04c4a7cbdd7e9ee2337b5c34196b.jpg",
+      accent: "https://i.pinimg.com/736x/d4/cc/21/d4cc21d7799332a0111dcbf606c75ddb.jpg"
+    },
+    {
+      hero: "https://i.pinimg.com/1200x/87/70/99/877099fbc97ec0ad897baa65fe126129.jpg",
+      primary: "https://i.pinimg.com/736x/40/a2/a8/40a2a888fe5e8d8d7a07c5b231bb123a.jpg",
+      secondary: "https://i.pinimg.com/1200x/3e/84/1d/3e841d86bc724262394cd4e8295b9c3a.jpg",
+      accent: "https://i.pinimg.com/736x/8d/c9/a3/8dc9a33ea26a9719028b2b92504652b7.jpg"
+    },
+    {
+      hero: "https://i.pinimg.com/736x/78/4e/2d/784e2d39bff88513ca94729cc6a1107d.jpg",
+      primary: "https://i.pinimg.com/736x/a8/bc/70/a8bc707eb79e865f1d861a3d8dcd9f83.jpg",
+      secondary: "https://i.pinimg.com/1200x/fe/33/9e/fe339e45e15480ebcdc89c6956cffe2b.jpg",
+      accent: "https://i.pinimg.com/1200x/00/ca/04/00ca04277ef06296b5404586aea519a8.jpg"
+    }
   ];
 
   const [currentSet, setCurrentSet] = useState(0);
-  const [timeLeft, setTimeLeft] = useState({
-    hours: 23,
-    minutes: 59,
-    seconds: 59
-  });
-
+  
+  
   const { ref, inView } = useInView({
-    threshold: 0.2,
+    threshold: 0.1,
     triggerOnce: true
   });
 
@@ -39,202 +47,266 @@ const Banner = () => {
       setCurrentSet((prev) => (prev + 1) % imageSets.length);
     }, 6000);
     return () => clearInterval(interval);
-  }, [imageSets.length]);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(prev => {
-        if (prev.seconds > 0) {
-          return { ...prev, seconds: prev.seconds - 1 };
-        } else if (prev.minutes > 0) {
-          return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
-        } else if (prev.hours > 0) {
-          return { hours: prev.hours - 1, minutes: 59, seconds: 59 };
-        }
-        return { hours: 23, minutes: 59, seconds: 59 };
-      });
-    }, 1000);
-    return () => clearInterval(timer);
   }, []);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 12
-      }
-    }
-  };
+  const offers = [
+    { id: "sale", label: "Flash Sale", icon: <Flame className="w-4 h-4" />, discount: "Up to 50% Off", color: "from-amber-500 to-orange-500" },
+    { id: "new", label: "New Arrivals", icon: <Sparkles className="w-4 h-4" />, discount: "Just Landed", color: "from-blue-500 to-cyan-500" },
+    { id: "member", label: "Members Only", icon: <Gift className="w-4 h-4" />, discount: "Extra 20% Off", color: "from-purple-500 to-pink-500" },
+  ];
 
   return (
     <section
       ref={ref}
-      className="relative w-full overflow-hidden bg-linear-to-r from-purple-900 via-purple-800 to-blue-900 py-16 md:py-24"
+      className="relative w-full bg-white py-8 md:py-10 overflow-hidden"
     >
-      {/* Animated Background */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-0 w-64 h-64 bg-purple-500 rounded-full blur-3xl opacity-20 animate-pulse"></div>
-        <div className="absolute bottom-0 right-0 w-80 h-80 bg-blue-500 rounded-full blur-3xl opacity-20 animate-pulse animation-delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-500 rounded-full blur-3xl opacity-10"></div>
+      {/* Subtle architectural background */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-linear-to-l from-slate-50 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-linear-to-t from-slate-50 to-transparent" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Editorial Header */}
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          className="relative rounded-3xl overflow-hidden bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl"
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col md:flex-row justify-between items-end mb-16"
         >
-          <div className="flex flex-col lg:flex-row">
-            {/* Left Content */}
-            <motion.div
-              variants={itemVariants}
-              className="lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center"
-            >
-              <div className="inline-flex items-center gap-3 mb-4">
-                <motion.span
-                  whileHover={{ scale: 1.05 }}
-                  className="px-4 py-2 bg-linear-to-r from-purple-500 to-pink-500 text-white text-sm font-bold rounded-full shadow-lg"
-                >
-                  <Tag className="w-4 h-4 inline mr-1" />
-                  Limited Time Offer
-                </motion.span>
-                <motion.span
-                  animate={{ scale: [1, 1.1, 1] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                  className="px-4 py-2 bg-white/10 backdrop-blur-md text-white text-sm font-semibold rounded-full border border-white/20"
-                >
-                  <Zap className="w-4 h-4 inline mr-1" />
-                  Up to 50% OFF
-                </motion.span>
-              </div>
+          <div className="max-w-2xl">
+            <div className="flex items-center gap-3 text-sm uppercase tracking-[0.3em] text-slate-400 mb-4">
+              <span className="w-12 h-px bg-slate-300" />
+              <span>Curated Selection</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-slate-900 tracking-tight">
+              Seasonal 
+              <span className="block text-3xl md:text-4xl font-light text-slate-500 mt-3">
+                Edit • 2025
+              </span>
+            </h2>
+          </div>
+          
+          {/* Collection counter */}
+          <div className="flex items-center gap-3 mt-4 md:mt-0">
+            <span className="text-sm text-slate-500">Collection</span>
+            <div className="flex gap-1.5">
+              {imageSets.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSet(index)}
+                  className={`h-1.5 rounded-full transition-all duration-500 ${
+                    index === currentSet
+                      ? "w-8 bg-slate-900"
+                      : "w-1.5 bg-slate-300 hover:bg-slate-400"
+                  }`}
+                />
+              ))}
+            </div>
+            <span className="text-sm font-medium text-slate-900">
+              {String(currentSet + 1).padStart(2, '0')} / {String(imageSets.length).padStart(2, '0')}
+            </span>
+          </div>
+        </motion.div>
 
-              <motion.h2
-                variants={itemVariants}
-                className="text-3xl md:text-5xl font-bold text-white mb-4"
-              >
-                Flash Sale
-                <span className="block text-transparent bg-clip-text bg-linear-to-r from-yellow-300 to-pink-300">
-                  Ends Soon!
-                </span>
-              </motion.h2>
-
-              <motion.p
-                variants={itemVariants}
-                className="text-gray-300 text-lg mb-6"
-              >
-                Grab your favorite sneakers at unbeatable prices. 
-                Selected products across the store — hurry before they're gone!
-              </motion.p>
-
-              {/* Countdown Timer */}
-              <motion.div
-                variants={itemVariants}
-                className="flex gap-4 mb-8"
-              >
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-xl flex items-center justify-center border border-white/20">
-                    <span className="text-2xl font-bold text-white">
-                      {String(timeLeft.hours).padStart(2, '0')}
-                    </span>
-                  </div>
-                  <span className="text-xs text-gray-400 mt-1 block">Hours</span>
-                </div>
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-xl flex items-center justify-center border border-white/20">
-                    <span className="text-2xl font-bold text-white">
-                      {String(timeLeft.minutes).padStart(2, '0')}
-                    </span>
-                  </div>
-                  <span className="text-xs text-gray-400 mt-1 block">Minutes</span>
-                </div>
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-xl flex items-center justify-center border border-white/20">
-                    <span className="text-2xl font-bold text-white">
-                      {String(timeLeft.seconds).padStart(2, '0')}
-                    </span>
-                  </div>
-                  <span className="text-xs text-gray-400 mt-1 block">Seconds</span>
-                </div>
-              </motion.div>
-
-              <motion.a
-                variants={itemVariants}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                href="#/shop"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-linear-to-r from-purple-600 to-blue-600 text-white font-bold rounded-xl hover:shadow-2xl transition-all duration-300 w-fit"
-              >
-                Shop Now
-                <Clock className="w-5 h-5" />
-              </motion.a>
-            </motion.div>
-
-            {/* Right Image Grid */}
-            <motion.div
-              variants={itemVariants}
-              className="lg:w-1/2 p-4 lg:p-6"
-            >
+        {/* Main Gallery Layout - Professional Editorial Grid */}
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
+          {/* Left Column - Hero Image */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative group"
+          >
+            <div className="relative aspect-4/5 overflow-hidden bg-slate-100 rounded-2xl">
               <AnimatePresence mode="wait">
-                <motion.div
+                <motion.img
                   key={currentSet}
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -50 }}
-                  transition={{ duration: 0.6 }}
-                  className="grid grid-cols-2 gap-3 h-full"
-                >
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    className="col-span-2 rounded-xl overflow-hidden shadow-2xl"
-                  >
-                    <img
-                      src={imageSets[currentSet][0]}
-                      alt="Featured product"
-                      className="w-full h-64 object-cover transition-transform duration-700 hover:scale-110"
-                    />
-                  </motion.div>
-                  
-                  {[1, 2].map((i) => (
-                    <motion.div
-                      key={i}
-                      whileHover={{ scale: 1.05 }}
-                      className="rounded-xl overflow-hidden shadow-lg"
-                    >
-                      <img
-                        src={imageSets[currentSet][i]}
-                        alt={`Product ${i + 1}`}
-                        className="w-full h-48 object-cover transition-transform duration-700 hover:scale-110"
-                      />
-                    </motion.div>
-                  ))}
-                </motion.div>
+                  src={imageSets[currentSet].hero}
+                  alt="Hero product"
+                  initial={{ opacity: 0, scale: 1.05 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.8 }}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
               </AnimatePresence>
+              
+              {/* Minimal overlay */}
+              <div className="absolute inset-0 bg-linear-to-t from-slate-900/20 via-transparent to-transparent" />
+              
+              {/* Product tag - Appears on hover */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileHover={{ opacity: 1, y: 0 }}
+                className="absolute bottom-6 left-6 bg-white/95 backdrop-blur-sm px-5 py-3 rounded-lg shadow-lg"
+              >
+                <p className="text-sm font-medium text-slate-900">Signature Edition</p>
+                <p className="text-xs text-slate-500 mt-0.5">Limited to 500 pieces</p>
+              </motion.div>
+            </div>
+            
+            {/* Caption */}
+            <div className="flex justify-between items-center mt-4">
+              <span className="text-sm text-slate-500">Hero piece • Featured</span>
+              <span className="text-xs text-slate-400 uppercase tracking-wider">01</span>
+            </div>
+          </motion.div>
+
+          {/* Right Column - Editorial Grid */}
+          <div className="grid grid-cols-2 gap-4 md:gap-6">
+            {/* Primary Image - Large */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="col-span-2 relative group"
+            >
+              <div className="relative aspect-video overflow-hidden bg-slate-100 rounded-xl">
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={currentSet}
+                    src={imageSets[currentSet].primary}
+                    alt="Primary product"
+                    initial={{ opacity: 0, scale: 1.05 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.8 }}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                </AnimatePresence>
+                
+                {/* Quick view button */}
+                <motion.button
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                  className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm p-2.5 rounded-full shadow-lg"
+                >
+                  <Eye className="w-4 h-4 text-slate-700" />
+                </motion.button>
+              </div>
+              <div className="flex justify-between items-center mt-3">
+                <span className="text-xs text-slate-500">Spring Collection</span>
+                <span className="text-xs font-medium text-slate-900">$245</span>
+              </div>
             </motion.div>
+
+            {/* Secondary Image - Square */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="relative group"
+            >
+              <div className="relative aspect-square overflow-hidden bg-slate-100 rounded-xl">
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={currentSet}
+                    src={imageSets[currentSet].secondary}
+                    alt="Secondary product"
+                    initial={{ opacity: 0, scale: 1.05 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.8 }}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                </AnimatePresence>
+                
+                {/* Price tag */}
+                <div className="absolute bottom-3 left-3 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-lg">
+                  <span className="text-sm font-medium text-slate-900">$189</span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Accent Image - Square */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="relative group"
+            >
+              <div className="relative aspect-square overflow-hidden bg-slate-100 rounded-xl">
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={currentSet}
+                    src={imageSets[currentSet].accent}
+                    alt="Accent product"
+                    initial={{ opacity: 0, scale: 1.05 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.8 }}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                </AnimatePresence>
+                
+                {/* New badge */}
+                <span className="absolute top-3 left-3 bg-slate-900 text-white text-xs px-2 py-1 rounded-md">
+                  New
+                </span>
+              </div>
+            </motion.div>
+
+            {/* Editorial note - spans both columns */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={inView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="col-span-2 mt-4 pt-4 border-t border-slate-200"
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <span className="text-xs text-slate-400 uppercase tracking-wider">Complete the look</span>
+                  <div className="flex -space-x-2">
+                    {[1, 2, 3].map((i) => (
+                      <div key={i} className="w-6 h-6 rounded-full bg-slate-200 border-2 border-white" />
+                    ))}
+                  </div>
+                </div>
+                <button className="group flex items-center gap-2 text-sm font-medium text-slate-900 hover:text-slate-700 transition-colors">
+                  Shop this edit
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Offer Banner - Integrated at bottom */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.7 }}
+          className="mt-20 p-8 bg-slate-50 rounded-2xl border border-slate-200"
+        >
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div className="flex items-center gap-4">
+              <div className="flex -space-x-2">
+                {offers.map((offer, i) => (
+                  <div
+                    key={offer.id}
+                    className={`w-10 h-10 rounded-full bg-linear-to-r ${offer.color} flex items-center justify-center text-white border-2 border-white`}
+                    style={{ zIndex: offers.length - i }}
+                  >
+                    {offer.icon}
+                  </div>
+                ))}
+              </div>
+              <div>
+                <h4 className="text-lg font-medium text-slate-900">Multiple offers available</h4>
+                <p className="text-sm text-slate-500">Flash sale, new arrivals, and member exclusives</p>
+              </div>
+            </div>
+            
+            <div className="flex items-center gap-4">
+              <span className="text-sm text-slate-500">Use code: EDIT25</span>
+              <button className="px-6 py-3 bg-slate-900 text-white rounded-full text-sm font-medium hover:bg-slate-800 transition-colors shadow-lg hover:shadow-xl">
+                Apply Offer
+              </button>
+            </div>
           </div>
         </motion.div>
       </div>
-
-      <style jsx>{`
-        .animation-delay-1000 {
-          animation-delay: 1s;
-        }
-      `}</style>
     </section>
   );
 };
