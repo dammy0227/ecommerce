@@ -22,15 +22,24 @@ const app = express();
 // ✅ Middleware
 app.use(express.json({ limit: "10kb" }));
 app.use(express.urlencoded({ extended: true, limit: "10kb" }));
+const allowedOrigins = [
+  "https://ecommerce-ruby-six-59.vercel.app", 
+  "http://localhost:5173",                    
+  "null",                                     
+];
+
 app.use(cors({
-  origin: [
-    "https://ecommerce-ruby-six-59.vercel.app",
-    "http://localhost:5173"
-  ],
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) === -1) {
+      const msg = 'CORS policy does not allow this origin.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  },
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
   credentials: true,
 }));
-
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev")); 
 }

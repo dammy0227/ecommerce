@@ -62,9 +62,12 @@ export const createOrder = async (req, res) => {
 ====================================================== */
 export const getUserOrders = async (req, res) => {
   try {
-    const orders = await Order.find({ user: req.user._id }).sort({
-      createdAt: -1,
-    });
+    const orders = await Order.find({ user: req.user._id })
+      .sort({ createdAt: -1 })
+      .populate({
+        path: "items.product",
+        select: "name price image",
+      });
 
     res.status(200).json({ success: true, orders });
   } catch (error) {
